@@ -21,16 +21,6 @@ namespace js
 
     BSTNodeType* pRoot = nullptr;
 
-
-  public:
-    BSTNodeType* newNode(const S& data) 
-    {
-      BSTNodeType* result = new BSTNodeType();
-      result->value = data;
-      return result;
-    }
-
-
     BSTNodeType* insert(const S& data, BSTNodeType*& root)
     {
       if (!root)
@@ -46,12 +36,7 @@ namespace js
         return insert(data, root->right);
     }
 
-    BSTNodeType* insert(const S& data)
-    {
-      return insert(data, pRoot);
-    }
-
-
+    
     bool search(const S& data, const BSTNodeType* root) const
     {
       if (!root)
@@ -71,6 +56,21 @@ namespace js
         return false;
       return search(data, root->right);
     }
+
+  public:
+    BSTNodeType* newNode(const S& data) 
+    {
+      BSTNodeType* result = new BSTNodeType();
+      result->value = data;
+      return result;
+    }
+
+
+    BSTNodeType* insert(const S& data)
+    {
+      return insert(data, pRoot);
+    }
+
 
     bool search(const S& data) const
     {
