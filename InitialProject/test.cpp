@@ -1,6 +1,6 @@
 #include "BinarySearchTree.h"
 
-#include <iostream>
+#include <algorithm>
 
 using namespace js;
 
@@ -17,5 +17,22 @@ void main()
 
   for (auto check : { 3, 0, 33, 199, 35, 37 })
     std::cout << check << (testTree.search(check) ? " found" : " unfound") << '\n';
+
+  std::cout << '\n';
+
+  auto copyTree = testTree;
+  for (auto check : { 3, 0, 33, 199, 35, 37 })
+    std::cout << "Copy Tree: " << check << (copyTree.search(check) ? " found" : " unfound") << '\n';
+  for (auto check : { 3, 0, 33, 199, 35, 37 })
+    std::cout << "Test Tree: " << check << (testTree.search(check) ? " found" : " unfound") << '\n';
+
+  std::cout << '\n';
+
+  auto moveTree = std::move(testTree);
+  for (auto check : { 3, 0, 33, 199, 35, 37 })
+    std::cout << "Move Tree: " << check << (moveTree.search(check) ? " found" : " unfound") << '\n';
+  for (auto check : { 3, 0, 33, 199, 35, 37 })
+    std::cout << "Test Tree: " << check << (testTree.search(check) ? " found" : " unfound") << '\n';
+
   return;
 }
